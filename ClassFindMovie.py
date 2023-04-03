@@ -17,7 +17,7 @@ class FindMovie():
           mycursor.execute("\
             SELECT tmdbId\
             FROM keywordmovie \
-            WHERE keywordmovie.keyword = %s",(keyword))
+            WHERE keywordmovie.keyword = %s AND keywordmovie.isFromIMDB = 1",(keyword))
           movieTuple = mycursor.fetchall()
           connection.commit()
           tempMovieList = []
@@ -26,7 +26,7 @@ class FindMovie():
           keyword2movies[keyword] = list(dict.fromkeys(tempMovieList))
       
       for key, value in keyword2movies.items():
-        print(key," = ",value)
+        #print(key," = ",value)
         for movieId in value:
           if(movieId in movieId2freq):
             movieId2freq[movieId] += 1

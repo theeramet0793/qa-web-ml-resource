@@ -7,7 +7,7 @@ def countKeyword(keywordList):
   mycursor = connection.cursor()
   for keyword in keywordList:
     mycursor.execute("\
-      INSERT INTO keywordcount( keyword, freq)\
+      INSERT INTO Keywordcount( keyword, freq)\
       VALUES(%s, %s)\
       ON DUPLICATE KEY\
       UPDATE freq = freq + 1",(keyword, 1))

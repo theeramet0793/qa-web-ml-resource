@@ -4,6 +4,7 @@ import pymysql
 
 
 def FindMovieNameByTMDBId(movieTmdbId):
+    #print(movieTmdbId)
     connection = pymysql.connect(host=connectionHost, user=connectionUser, password=connectionPassword,db=connectionDatabase)
     mycursor = connection.cursor()
     mycursor.execute("\

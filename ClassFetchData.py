@@ -6,9 +6,9 @@ def fetch_data_from_facebook_db():
   connection = pymysql.connect(host=connectionHost, user=connectionUser, password=connectionPassword,db=connectionDatabase)
   mycursor = connection.cursor()
   mycursor.execute("\
-    SELECT id, tmdbId, detail, isUsed\
+    SELECT id, postId, tmdbId, detail, isUsed\
     FROM moviefromfbg\
-    WHERE moviefromfbg.isUsed = 0\
+    WHERE moviefrompost.isUsed = 0\
     LIMIT 1")
   data = mycursor.fetchall();
   connection.commit()
